@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "王建军",
+  "classifications": [ "Common", "Library" ],
+  "identity": "Arctic.WebProjectTemplate",
+  "name": "Arctic.WebProjectTemplate",
+  "shortName": "arctic-web",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "WebProject"
+}

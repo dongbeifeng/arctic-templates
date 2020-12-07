@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "王建军",
+  "classifications": [ "Common", "Code" ],
+  "identity": "Arctic.ControllerItemTemplate",
+  "name": "Arctic.ControllerItemTemplate",
+  "shortName": "arctic-controller",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "preferNameDirectory":true,
+  "symbols":{
+    "EntityName": {
+      "type": "parameter",
+      "defaultValue": "Clazz",
+      "replaces":"Clazz",
+      "isRequired":true,
+      "fileRename": "Clazz"
+    },  
+    "Namespace": {
+      "type": "parameter",
+      "defaultValue": "Application",
+      "replaces":"Application"
+    },
+
+    "temp1": {
+      "type": "derived",
+      "valueSource": "EntityName",
+      "valueTransform": "lowerCaseFirstLetter"
+    },
+    "temp2": {
+      "type": "derived",
+      "valueSource": "EntityName",
+      "valueTransform": "afterFirstLetter"
+    },
+    "varname": {
+      "type": "generated",
+      "generator": "join",
+      "replaces": "clazz",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "ref",
+            "value": "temp1"
+          },
+          {
+            "type": "ref",
+            "value": "temp2"
+          }
+        ]
+      }
+    }
+  },
+  "forms": {
+    "lowerCaseFirstLetter": {
+      "identifier": "chain",
+      "steps": [
+        "firstLetter",
+        "lowerCase"
+      ]
+    },
+    "firstLetter": {
+      "identifier": "replace",
+      "pattern": "^(.)(.*)",
+      "replacement": "$1"
+    },
+    "afterFirstLetter": {
+      "identifier": "replace",
+      "pattern": "^(.)(.*)",
+      "replacement": "$2"
+    },
+    "lowerCase": {
+      "identifier": "lowerCase"
+    }
+  }
+}
