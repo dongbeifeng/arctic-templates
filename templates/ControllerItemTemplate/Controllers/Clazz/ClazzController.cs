@@ -1,4 +1,5 @@
-using Arctic.NHibernateExtensions.AspNetCore;
+using Arctic.AspNetCore;
+using Arctic.NHibernateExtensions;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
 using Serilog;
@@ -32,7 +33,7 @@ namespace Application.Web.Controllers
         [Route("list")]
         public async Task<ClazzList> List(ClazzListArgs args)
         {
-            var pagedList = await _session.Query<Clazz>().ToPagedListAsync(args);
+            var pagedList = await _session.Query<Clazz>().SearchAsync(args, args.Sort, args.Current, args.PageSize);
             return new ClazzList
             {
                 Success = true,

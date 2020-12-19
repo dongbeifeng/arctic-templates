@@ -6,25 +6,25 @@ namespace Application.Web.Controllers
     /// <summary>
     /// 列表查询参数
     /// </summary>
-    public class ClazzListArgs : IListArgs<Clazz>
+    public class ClazzListArgs
     {
         /// <summary>
         /// 支持模糊查找，使用 ? 表示单个字符，使用 * 表示任意个字符
         /// </summary>
-        [ListFilter(ListFilterOperator.Like)]
+        [SearchArg(SearchMode.Like)]
         public string? Prop1 { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [ListFilter("Prop2", ListFilterOperator.GTE )]
+        [SearchArg(SearchMode.GreaterThan)]
         public int? Prop2From { get; set; }
 
 
         /// <summary>
         /// 
         /// </summary>
-        [ListFilter("Prop2", ListFilterOperator.LT)]
+        [SearchArg(SearchMode.LessThan)]
         public DateTime? Prop2To { get; set; }
 
         /// <summary>
