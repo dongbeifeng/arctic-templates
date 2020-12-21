@@ -18,7 +18,7 @@ namespace Application.Web.Controllers
         /// <summary>
         /// Prop2
         /// </summary>
-        public int Prop { get; set; }
+        public int Prop2 { get; set; }
 
     }
 
